@@ -85,5 +85,5 @@ class OAuth2_Provider_10086 extends OAuth2_Provider
             'expire_at' => $token->expires,
             'refresh_token' => $token->refresh_token
         );
-	}
+    }
 }
