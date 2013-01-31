@@ -58,7 +58,7 @@ class OAuth2_Provider_Tianyi extends OAuth2_Provider
 			'image' => '',
 			'access_token' => $token->access_token,
 			'expire_at' => $token->expires,
-			'refresh_token' => $token->refresh_token
+			'refresh_token' => $token->refresh_token 
 		);
 	}
 }

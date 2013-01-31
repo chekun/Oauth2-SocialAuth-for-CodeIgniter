@@ -15,7 +15,7 @@ class OAuth2_Provider_Sohu extends OAuth2_Provider
 
 	public $uid_key = 'id';
         
-    public $state_key = 'wrap_client_state';
+    public $state_key = 'wrap_client_state'; 
 
 	public $method = 'POST';
         

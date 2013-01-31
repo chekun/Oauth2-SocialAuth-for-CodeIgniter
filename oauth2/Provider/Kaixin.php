@@ -3,7 +3,7 @@
  /**
   * Oauth2 SocialAuth for CodeIgniter
   * 开心网 Provider
-  * 
+  *  
   * @author     chekun <234267695@qq.com>
   */
 

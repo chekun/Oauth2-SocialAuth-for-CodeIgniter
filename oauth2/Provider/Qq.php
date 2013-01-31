@@ -6,7 +6,7 @@
   * 
   * @author     chekun <234267695@qq.com>
   */
-
+ 
 class OAuth2_Provider_Qq extends OAuth2_Provider
 {
 	public $name = 'qq';

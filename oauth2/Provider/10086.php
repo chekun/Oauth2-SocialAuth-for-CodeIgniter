@@ -2,7 +2,7 @@
 
  /**
   * Oauth2 SocialAuth for CodeIgniter
-  * 移动微博 Provider
+  * 移动微博 Provider 
   * 
   * @author     chekun <234267695@qq.com>
   */

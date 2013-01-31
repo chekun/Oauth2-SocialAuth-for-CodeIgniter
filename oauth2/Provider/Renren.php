@@ -11,7 +11,7 @@ class OAuth2_Provider_Renren extends OAuth2_Provider
 {
 	public $name = 'renren';
 
-	public $human = '人人';
+	public $human = '人人'; 
         
 	public $method = 'POST';
  

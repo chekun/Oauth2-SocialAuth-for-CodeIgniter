@@ -2,7 +2,7 @@
 
  /**
   * Oauth2 SocialAuth for CodeIgniter
-  * 360 Provider
+  * 360 Provider 
   * 
   * @author     chekun <234267695@qq.com>
   */
