@@ -33,35 +33,35 @@ class OAuth2_Provider_Qq extends OAuth2_Provider
 			'access_token' => $token->access_token
 		));
 		$response = file_get_contents($url);
-                
-        if (strpos($response, "callback") !== false)
-        {
-            $lpos = strpos($response, "(");
-            $rpos = strrpos($response, ")");
-            $response  = substr($response, $lpos + 1, $rpos - $lpos -1);
-        }
-        $me = json_decode($response);
-                
-        if (isset($me->error))
-        {
-            throw new OAuth2_Exception((array) $me);
-        }
-		
-        $url = 'https://graph.qq.com/user/get_user_info?'.http_build_query(array(
+		        
+		if (strpos($response, "callback") !== false)
+		{
+		    $lpos = strpos($response, "(");
+		    $rpos = strrpos($response, ")");
+		    $response  = substr($response, $lpos + 1, $rpos - $lpos -1);
+		}
+		$me = json_decode($response);
+		        
+		if (isset($me->error))
+		{
+		    throw new OAuth2_Exception((array) $me);
+		}
+
+		$url = 'https://graph.qq.com/user/get_user_info?'.http_build_query(array(
 			'access_token' => $token->access_token,
 			'openid' => $me->openid,
-            'oauth_consumer_key' => $this->client_id
+		    'oauth_consumer_key' => $this->client_id
 		));
-                $response = file_get_contents($url);
+		        $response = file_get_contents($url);
 		$user = json_decode($response);
-                
-	    if (isset($me->error))
-	    {
-	    	throw new OAuth2_Exception((array) $user);
-	    }
-                
+		        
+		if (isset($me->error))
+		{
+			throw new OAuth2_Exception((array) $user);
+		}
+		        
 		return array(
-            'via' => 'qq',
+		    'via' => 'qq',
 			'uid' => $me->openid,
 			'screen_name' => $user->nickname,
 			'name' => '',
