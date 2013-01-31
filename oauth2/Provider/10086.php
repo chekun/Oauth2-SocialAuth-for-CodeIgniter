@@ -28,17 +28,17 @@ class OAuth2_Provider_10086 extends OAuth2_Provider
         return 'http://oapi.weibo.10086.cn/oauth/authorize.php';
     }
 
-	public function url_access_token()
-	{
+    public function url_access_token()
+    {
         //oauth1.0强行转换成2.0的后果
         $this->params['namespace'] = 'mig';
         $this->params['random'] = substr(md5(time()), 0, 16);
         $this->params['mig'] = md5($_GET['code'].substr($this->params['random'], -1, 12).$this->client_secret.$this->params['namespace']);
         return 'http:// oapi.weibo.10086.cn/oauth/token.php';
-	}
+    }
 
-	public function get_user_info(OAuth2_Token_Access $token)
-	{  	
+    public function get_user_info(OAuth2_Token_Access $token)
+    {  	
         $call_id = time();
         $mi_sig = md5('api_key'.$this->client_id.'call_id'.$call_id.'session_key'.$token->access_token.'v2.0'.$this->client_secret);
 
