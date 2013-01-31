@@ -52,7 +52,7 @@ class OAuth2_Provider_Qq extends OAuth2_Provider
 			'openid' => $me->openid,
 		    'oauth_consumer_key' => $this->client_id
 		));
-		        $response = file_get_contents($url);
+		$response = file_get_contents($url);
 		$user = json_decode($response);
 		        
 		if (isset($me->error))
@@ -61,7 +61,7 @@ class OAuth2_Provider_Qq extends OAuth2_Provider
 		}
 		        
 		return array(
-		    'via' => 'qq',
+			'via' => 'qq',
 			'uid' => $me->openid,
 			'screen_name' => $user->nickname,
 			'name' => '',

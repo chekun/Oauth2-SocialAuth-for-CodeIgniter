@@ -47,15 +47,15 @@ class OAuth2_Provider_Renren extends OAuth2_Provider
 		$context = stream_context_create(array_merge_recursive($_default_opts['options'], $opts));
 		$user = json_decode(file_get_contents($url, false, $context));
 		
-      	if ( ! is_array($user) OR ! isset($user[0]) OR ! ($user = $user[0]) OR array_key_exists("error_code", $user))
-        {
-        	throw new OAuth2_Exception((array) $user);
-        }
+		if ( ! is_array($user) OR ! isset($user[0]) OR ! ($user = $user[0]) OR array_key_exists("error_code", $user))
+		{
+			throw new OAuth2_Exception((array) $user);
+		}
                 
                 
 		// Create a response from the request
 		return array(
-            'via' => 'renren',
+			'via' => 'renren',
 			'uid' => $user->uid,
 			'screen_name' => $user->name,
 			'name' => '',

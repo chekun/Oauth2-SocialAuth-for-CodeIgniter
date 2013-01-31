@@ -42,14 +42,14 @@ class OAuth2_Provider_Tianyi extends OAuth2_Provider
 		));
 		$user_network_info = json_decode(file_get_contents($url));
 
-      	if (array_key_exists("error", $user_network_info))
-        {
-        	throw new OAuth2_Exception((array) $user_network_info);
-        }
+		if (array_key_exists("error", $user_network_info))
+		{
+			throw new OAuth2_Exception((array) $user_network_info);
+		}
                 
 		// Create a response from the request
 		return array(
-            'via' => 'tianyi',
+			'via' => 'tianyi',
 			'uid' => $token->uid,
 			'screen_name' => $user_network_info->user_nickname,
 			'name' => '',

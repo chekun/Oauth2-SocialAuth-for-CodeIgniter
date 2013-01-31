@@ -29,21 +29,19 @@ class OAuth2_Provider_Weibo extends OAuth2_Provider
 
 	public function get_user_info(OAuth2_Token_Access $token)
 	{
-
 		$url = 'https://api.weibo.com/2/users/show.json?'.http_build_query(array(
 			'access_token' => $token->access_token,
 			'uid' => $token->uid,
 		));
 		$user = json_decode(file_get_contents($url));
 
-      	if (array_key_exists("error", $user))
-        {
-        	throw new OAuth2_Exception((array) $user);
-        }
+		if (array_key_exists("error", $user))
+		{
+			throw new OAuth2_Exception((array) $user);
+		}
 
-		// Create a response from the request
 		return array(
-            'via' => 'weibo',
+			'via' => 'weibo',
 			'uid' => $user->id,
 			'screen_name' => $user->screen_name,
 			'name' => $user->name,

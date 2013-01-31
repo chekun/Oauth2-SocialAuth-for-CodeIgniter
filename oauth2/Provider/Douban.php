@@ -37,14 +37,14 @@ class OAuth2_Provider_Douban extends OAuth2_Provider
 		));
 		$user = json_decode(file_get_contents($url));
 
-      	if ( ! $user OR array_key_exists('msg', $user))
-        {
-        	throw new OAuth2_Exception((array) $user);
-        }
+		if ( ! $user OR array_key_exists('msg', $user))
+		{
+			throw new OAuth2_Exception((array) $user);
+		}
 
 		// Create a response from the request
 		return array(
-            'via' => 'douban',
+			'via' => 'douban',
 			'uid' => $user->id,
 			'screen_name' => $user->uid,
 			'name' => $user->name,

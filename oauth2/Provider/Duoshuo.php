@@ -29,9 +29,8 @@ class OAuth2_Provider_Duoshuo extends OAuth2_Provider
 
 	public function get_user_info(OAuth2_Token_Access $token)
 	{
-		// Create a response from the request
 		return array(
-            'via' => 'duoshuo',
+			'via' => 'duoshuo',
 			'uid' => $token->uid,
 			'screen_name' => $token->uid,
 			'name' => '',

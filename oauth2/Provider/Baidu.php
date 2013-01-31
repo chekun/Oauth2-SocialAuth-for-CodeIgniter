@@ -36,14 +36,14 @@ class OAuth2_Provider_Baidu extends OAuth2_Provider
 		));
 		$user = json_decode(file_get_contents($url));
 
-      	if (array_key_exists("error", $user))
-        {
-        	throw new OAuth2_Exception((array) $user);
-        }
+		if (array_key_exists("error", $user))
+		{
+			throw new OAuth2_Exception((array) $user);
+		}
 
 		// Create a response from the request
 		return array(
-            'via' => 'baidu',
+			'via' => 'baidu',
 			'uid' => $user->uid,
 			'screen_name' => $user->uname,
 			'name' => '',
