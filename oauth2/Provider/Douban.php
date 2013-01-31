@@ -15,7 +15,7 @@ class OAuth2_Provider_Douban extends OAuth2_Provider
 
 	public $uid_key = 'douban_user_id';
         
-    public $error_key = 'msg';
+	public $error_key = 'msg';
 
 	public $method = 'POST';
  
