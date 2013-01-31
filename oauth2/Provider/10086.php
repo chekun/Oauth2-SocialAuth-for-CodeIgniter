@@ -9,24 +9,24 @@
 
 class OAuth2_Provider_10086 extends OAuth2_Provider
 {
-	public $name = '10086';
+    public $name = '10086';
 
-	public $human = '移动微博';
+    public $human = '移动微博';
         
     public $client_id_key = 'api_key';
-	
+
     public $client_secret_key = 'api_secret';
         
     public $error_key = 'error_code';
         
     public $access_token_key = 'session_key';
         
-	public $method = 'POST';
- 
-	public function url_authorize()
-	{
-		return 'http://oapi.weibo.10086.cn/oauth/authorize.php';
-	}
+    public $method = 'POST';
+
+    public function url_authorize()
+    {
+        return 'http://oapi.weibo.10086.cn/oauth/authorize.php';
+    }
 
 	public function url_access_token()
 	{
@@ -53,13 +53,13 @@ class OAuth2_Provider_10086 extends OAuth2_Provider
                 
         if ($user->error_code > 0)
         {
-        	throw new OAuth2_Exception((array) $user);
+            throw new OAuth2_Exception((array) $user);
         }
 
         $uid = $user->uid;
 
         $url = 'http://oapi.weibo.10086.cn/users/getinfo.json?'.http_build_query(array(
-        	'session_key' => $token->access_token,
+            'session_key' => $token->access_token,
             'api_key' => $this->client_id,
             'v' => '2.0',
             'call_id' => $call_id,
@@ -67,7 +67,7 @@ class OAuth2_Provider_10086 extends OAuth2_Provider
         ));
         $user = json_decode(file_get_contents($url));
 
-        	if ($user->error_code > 0)
+        if ($user->error_code > 0)
         {
             throw new OAuth2_Exception((array) $user);
         }
@@ -75,15 +75,15 @@ class OAuth2_Provider_10086 extends OAuth2_Provider
         // Create a response from the request
         return array(
             'via' => '10086',
-        	'uid' => $uid,
-        	'screen_name' => $user->screen_name,
-        	'name' => $user->username,
-        	'location' => '',
-        	'description' => '',
-        	'image' => $user->tinyurl,
-        	'access_token' => $token->access_token,
-        	'expire_at' => $token->expires,
-        	'refresh_token' => $token->refresh_token
+            'uid' => $uid,
+            'screen_name' => $user->screen_name,
+            'name' => $user->username,
+            'location' => '',
+            'description' => '',
+            'image' => $user->tinyurl,
+            'access_token' => $token->access_token,
+            'expire_at' => $token->expires,
+            'refresh_token' => $token->refresh_token
         );
 	}
 }
