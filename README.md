@@ -38,6 +38,19 @@
 ## 使用说明
 
 * 将Oauth2.php和oauth2文件夹扔进libraries里
+* application/config建立oauth2.php，内容如下
+
+```php
+//xx代表每个provider的唯一标识，也就是文件名的小写
+$config['oauth2']['xx'] = array(
+	'id' => 'your app client id',
+	'secret' => 'your app client secret'
+);
+$config['oauth2']['xxx'] = array(
+	'id' => 'your app client id',
+	'secret' => 'your app client secret'
+);
+```
 * 典型的控制器代码
 
 ```php
