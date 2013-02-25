@@ -35,6 +35,9 @@
 
 [查看演示请戳这里](http://oauth24codeigniter.sinaapp.com/)
 
+example文件夹为演示站点的源代码
+
+
 ## 使用说明
 
 * 将Oauth2.php和oauth2文件夹扔进libraries里
