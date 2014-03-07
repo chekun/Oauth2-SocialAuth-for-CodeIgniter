@@ -7,7 +7,7 @@
   * @author     chekun <234267695@qq.com>
   */
 
-class Weixin extends Oauth2Provider implements Oauth2ProviderInterface {
+class Weixin extends Oauth2_Provider {
 
     const API_URL = 'https://api.weixin.qq.com/';
 
@@ -15,11 +15,11 @@ class Weixin extends Oauth2Provider implements Oauth2ProviderInterface {
 
     public $human = '微信';
 
-    public $uidKey = 'openid';
+    public $uid_key = 'openid';
 
-    public $clientIdKey = 'appid';
+    public $client_id_key = 'appid';
 
-    public $clientSecretKey = 'secret';
+    public $client_secret_key = 'secret';
 
     protected $scope = 'snsapi_userinfo';
 
